@@ -7,6 +7,7 @@ import burgerMenuClose from "../../../assets/burgerMenuClose.svg";
 import HeaderTop from "./HeaderTop";
 
 function Header() {
+  
   return (
     <>
       <div className="header">

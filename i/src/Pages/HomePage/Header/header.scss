@@ -115,6 +115,7 @@
 @media only screen and (max-width: 1160px) {
   .header {
     position: relative;
+    height: calc(100vh + 120px);
   }
   .headerTop {
     padding: 9px 0;
@@ -124,7 +125,6 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    background-color: red;
   }
   .headerTop__list {
     align-items: flex-start;
@@ -152,11 +152,18 @@
     position: absolute;
     top: 180px;
     left: 0;
+    height: 350px;
+    width: 100%;
+    overflow-y: scroll;
   }
   .header__link {
+    font-size: 10px;
+    line-height: 15px;
+    padding: 14px 19px;
     position: absolute;
     top: 620px;
-    left: 80px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .header__burgerMenu {
     display: none;
