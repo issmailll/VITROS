@@ -1,9 +1,9 @@
 import React from "react";
 
-function HeaderTop() {
+function HeaderTop(props) {
   return (
     <>
-      <div className="headerTop">
+      <div className={props.className}>
         <div className="headerTop__container container">
           <ul className="headerTop__list">
             <li className="headerTop__item">+998 (71) 203-00-77</li>

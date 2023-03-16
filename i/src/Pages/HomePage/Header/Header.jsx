@@ -1,31 +1,48 @@
 import React from "react";
+import { useState } from "react";
 import "./header.scss";
 import siteLogo from "../../../assets/siteLogo.svg";
 import shopIcon from "../../../assets/shopIcon.svg";
 import burgerMenu from "../../../assets/burgerMenu.svg";
 import burgerMenuClose from "../../../assets/burgerMenuClose.svg";
 import HeaderTop from "./HeaderTop";
+import Uslugi from "./Uslugi";
 
 function Header() {
-  
+
+  const [ showHeaderTop, setShowHeaderTop ] = useState(false);
+  const [ showNavList, setShowNavList ] = useState(false);
+  const [ showLink, setShowLink ] = useState(false);
+  const [ uslugi, setUslugi ] = useState(false);
+
+  function handleBurgerClick() {
+    setShowHeaderTop(!showHeaderTop);
+    setShowNavList(!showNavList);
+    setShowLink(!showLink);
+  }
+  const toggleUslugi = () => {
+    setUslugi(!uslugi);
+  };
+
   return (
     <>
       <div className="header">
-        <HeaderTop />
+       <HeaderTop  className={showNavList ? "headerTop headerTop--show" : "headerTop"}/>
         <div className="header__container container">
           <a className="header__logoLink" href="#">
             <img width="124" height="30" className="header__siteLogo" src={siteLogo} alt="site-logo"/>
           </a>
           <nav className="header__nav">
-            <ul className="header__nav-list">
+            <ul className={showNavList ? "header__nav-list header__nav-list--show" : "header__nav-list"}>
               <li className="header__nav-item">
                 <a className="header__nav-link" href="#">Выездная лаборатория</a>
               </li>
               <li className="header__nav-item">
                 <a className="header__nav-link" href="#">Анализы</a>
               </li>
-              <li className="header__nav-item">
-                <a className="header__nav-link header__nav-link--arrow" href="#">Услуги</a>
+              <li className="header__nav-item header__nav-item--uslugi">
+                <a onClick={toggleUslugi} className="header__nav-link header__nav-link--arrow" href="#">Услуги</a>
+                {uslugi && <Uslugi />}
               </li>
               <li className="header__nav-item">
                 <a className="header__nav-link" href="#">Франчайзинг</a>
@@ -41,10 +58,10 @@ function Header() {
               <button className="header__shopIcon">
                 <img src={shopIcon} alt="shop-icon" />
               </button>
-              <button className="header__burgerMenu">
-                <img src={burgerMenu} alt="burger-menu" />
+              <button onClick={handleBurgerClick} className="header__burgerMenu">
+                {showHeaderTop ? <img src={burgerMenuClose} alt="burger-menu-close" /> : <img src={burgerMenu} alt="burger-menu" />}
               </button>
-              <a className="header__link" href="#">Получить результаты</a>
+              <a className={showLink ? "header__link header__link--show" : "header__link"} href="#">Получить результаты</a>
             </div>
           </nav>
         </div>
