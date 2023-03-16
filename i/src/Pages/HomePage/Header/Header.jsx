@@ -14,11 +14,13 @@ function Header() {
   const [ showNavList, setShowNavList ] = useState(false);
   const [ showLink, setShowLink ] = useState(false);
   const [ uslugi, setUslugi ] = useState(false);
+  const [ header, setShowHeader ] = useState(false);
 
   function handleBurgerClick() {
     setShowHeaderTop(!showHeaderTop);
     setShowNavList(!showNavList);
     setShowLink(!showLink);
+    setShowHeader(!header);
   }
   const toggleUslugi = () => {
     setUslugi(!uslugi);
@@ -26,7 +28,7 @@ function Header() {
 
   return (
     <>
-      <div className="header">
+      <div className={showNavList ? "header header--show" : "header"}>
        <HeaderTop  className={showNavList ? "headerTop headerTop--show" : "headerTop"}/>
         <div className="header__container container">
           <a className="header__logoLink" href="#">

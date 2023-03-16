@@ -51,6 +51,9 @@
   border-bottom: 1px solid #f0f0f0;
   backdrop-filter: blur(6px);
 }
+.header--show {
+  height: 610px;
+}
 .header__container {
   display: flex;
   align-items: center;
@@ -142,10 +145,10 @@
   .headerTop--show {
     display: block;
     position: absolute;
+    top: 69px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    top: 100%;
   }
   .headerTop__list {
     display: flex;
