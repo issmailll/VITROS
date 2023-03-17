@@ -43,7 +43,7 @@ function Header() {
                 <a className="header__nav-link" href="#">Анализы</a>
               </li>
               <li className="header__nav-item header__nav-item--uslugi">
-                <a onClick={toggleUslugi} className="header__nav-link header__nav-link--arrow" href="#">Услуги</a>
+                <button onClick={toggleUslugi} className="header__nav-link header__nav-link--uslugi header__nav-link--arrow" href="#">Услуги</button>
                 {uslugi && <Uslugi />}
               </li>
               <li className="header__nav-item">
