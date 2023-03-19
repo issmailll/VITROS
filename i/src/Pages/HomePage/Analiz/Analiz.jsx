@@ -1,10 +1,14 @@
 import React from "react";
 import "./analiz.scss";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../CartContext";
+import { useState, useEffect, useContext } from "react";
+import shopIcon from "../../../assets/bagIconNoHover.svg";
+import dobavlenoIcon from "../../../assets/dobavleno.svg";
 
 function Analiz() {
   const [data, setData] = useState([]);
+  const [cartItems, setCartItems] = useContext(CartContext);
 
   useEffect(() => {
     fetch("http://localhost:2003/famousAnalizes")
@@ -16,15 +20,14 @@ function Analiz() {
   const handleClick = (id) => {
     fetch(`http://localhost:2003/famousAnalizes/${id}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ active: !data.find(el => el.id === id).active }),
-    })
+      headers: {"Content-Type": "application/json",},
+      body: JSON.stringify({ active: !data.find(el => el.id === id).active })})
       .then((response) => response.json())
-      .then((result) => setData(data.map((item) => item.id === result.id ? result : item)))
-      .catch((error) => console.log(error));
-  };
+      .then((result) => {
+        setData(data.map((item) => item.id === result.id ? result : item))
+        if (result.active) {setCartItems([...cartItems, id])} 
+        else {setCartItems(cartItems.filter((itemId) => itemId !== id))}})
+      .catch((error) => console.log(error))};
 
   return (
     <>
@@ -45,14 +48,16 @@ function Analiz() {
                     <h3 className="analiz__itemTitle">{el.title}</h3>
                     <p className="analiz__itemSubTitle">{el.subTitle}</p>
                   </div>
-                  <p className="analiz__itemCost">{el.price} сум</p>
-                  <button onClick={() => handleClick(el.id)}  className="analiz__itemBtn">
-                  {el.active ? "Добавлено" : "В корзину"}
-                  </button>
-                </li>
-              );
-            })}
+                  <div className="analiz__itemCostWrapper">
+                      <p className="analiz__itemCost">{el.price} сум</p>
+                      <button onClick={() => handleClick(el.id)}  className="analiz__itemBtn">
+                      {el.active?"Добавлено":"В корзину"}
+                      {el.active?<img className="analiz__img" src={dobavlenoIcon} alt="icon"/>:<img className="analiz__img" src={shopIcon} alt="icon"/>}
+                      </button>
+                  </div>
+                </li>)})}
           </ul>
+          <Link className="analiz__link analiz__link--mobile" to="/analizi">Посмотреть все анализы (500)</Link>
         </div>
       </div>
     </>

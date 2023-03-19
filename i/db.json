@@ -119,7 +119,7 @@
       "title": "COVID-19 (ПЦР) срочный (только в филиале Ганга)",
       "subTitle": "COVID-19",
       "price": 500000,
-      "active": true
+      "active": false
     },
     {
       "id": 3,
