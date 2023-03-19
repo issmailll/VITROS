@@ -58,6 +58,7 @@ function Header() {
             </ul>
             <div className="header__linkWrapper">
               <button className="header__shopIcon">
+                <span>0</span>
                 <img src={shopIcon} alt="shop-icon" />
               </button>
               <button onClick={handleBurgerClick} className="header__burgerMenu">

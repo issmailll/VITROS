@@ -97,6 +97,8 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: flex-start;
 }
 .header__link {
   font-weight: 500;
