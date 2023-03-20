@@ -14,7 +14,7 @@ function App() {
         <Route path="/Лабораторная диагностика" element={<Lab />} />
         <Route path="/Фибросканирование печени" element={<Fab />} />
         <Route path="/Ультразвуковая диагностика" element={<Ultra />} />
-        <Route path="/analizi" element={<Analizi/>}/>
+        <Route path="/analizi" element={<Analizi />} />
       </Routes>
     </>
   );
