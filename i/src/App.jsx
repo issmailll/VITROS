@@ -5,6 +5,7 @@ import Fab from "./Pages/UslugiPage/Fab/Fab";
 import Ultra from "./Pages/UslugiPage/Ultra/Ultra";
 import Analizi from "./Pages/Analizi/Analizi";
 import { Routes, Route } from "react-router-dom";
+// import Dodo from "./Dodo";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Ультразвуковая диагностика" element={<Ultra />} />
         <Route path="/analizi" element={<Analizi />} />
       </Routes>
+      {/* <Dodo/> */}
     </>
   );
 }

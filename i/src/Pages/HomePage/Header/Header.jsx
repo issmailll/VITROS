@@ -6,17 +6,14 @@ import burgerMenu from "../../../assets/burgerMenu.svg";
 import burgerMenuClose from "../../../assets/burgerMenuClose.svg";
 import HeaderTop from "./HeaderTop";
 import Uslugi from "./Uslugi";
-import { useState, useContext } from "react";
-import { CartContext } from "../../../CartContext";
+import { useState } from "react";
 
 function Header() {
-
   const [ showHeaderTop, setShowHeaderTop ] = useState(false);
   const [ showNavList, setShowNavList ] = useState(false);
   const [ showLink, setShowLink ] = useState(false);
   const [ uslugi, setUslugi ] = useState(false);
   const [ header, setShowHeader ] = useState(false);
-  const [ cartItems ] = useContext(CartContext);
 
   function handleBurgerClick() {
     setShowHeaderTop(!showHeaderTop);
@@ -43,7 +40,7 @@ function Header() {
             </ul>
             <div className="header__linkWrapper">
               <button className="header__shopIcon">
-                <span>{cartItems.length}</span>
+                <span>0</span>
                 <img src={shopIcon} alt="shop-icon" />
               </button>
               <button onClick={handleBurgerClick} className="header__burgerMenu">{showHeaderTop?<img src={burgerMenuClose} alt="burger-menu-close" />:<img src={burgerMenu} alt="burger-menu"/>}</button>
