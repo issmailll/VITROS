@@ -41,13 +41,13 @@
 }
 .analiz__list {
   display: flex;
-  align-items: flex-start;
-  gap: 25px;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 28px;
 }
 .analiz__item {
-  max-width: 263px;
-  min-width: 263px;
+  width: 263px;
   background: #ffffff;
   border: 1px solid #f0f0f0;
   border-radius: 14px;
@@ -106,4 +106,62 @@
 }
 .analiz__link--mobile {
   display: none;
+}
+
+// MOBILE DESIGN --------------------------------------------------------------------------------------------------
+
+@media only screen and (max-width: 1160px) {
+  .analiz {
+    margin-bottom: 88px;
+  }
+  .analiz__titleMainWrapper {
+    margin-bottom: 24px;
+  }
+  .analiz__title {
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 38px;
+  }
+  .analiz___subTitle {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+  }
+  .analiz__link {
+    display: none;
+  }
+  .analiz__list {
+    gap: 16px;
+  }
+  .analiz__item {
+    width: 100%;
+  }
+  .analiz__itemTitleWrapper {
+    height: 81px;
+    margin-bottom: 16px;
+  }
+  .analiz__itemCostWrapper {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .analiz__itemCost {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  .analiz__itemBtn {
+    padding: 16px 24px 16px 50px;
+  }
+  .analiz__itemBtmImg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 21px;
+  }
+  .analiz__link--mobile {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 224px;
+  }
 }

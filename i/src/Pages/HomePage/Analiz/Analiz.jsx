@@ -35,10 +35,10 @@ function Analiz() {
                             <h3 className="anali__itemTitle">{ell.title}</h3>
                             <p className="analiz__itemSubTitle">{ell.subTitle}</p>
                         </div>
-                        <div>
-                            <p className="analiz__itemCost">{ell.price}</p>
+                        <div className="analiz__itemCostWrapper">
+                            <p className="analiz__itemCost">{ell.price}<br />сум</p>
                             <button className="analiz__itemBtn">B корзину
-                            
+                            <img className="analiz__itemBtmImg" src={shopIcon} alt="shop-icon" />
                             </button>
                         </div>
                       </li>
